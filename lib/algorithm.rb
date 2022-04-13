@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-#module Algorithm
+module Algorithm
 
-  def travails(start, final)
+  def dijkstra_algorithm(start, final)
     # Begin with an empty array which describes our pathway from start to finish
     solution = []
     solution << start
@@ -35,7 +35,7 @@
 
     # In the next step, we iterate through the distance array and track the nodes with the lowest distance values
     shortest_seeker = Knight.new(start)
-    shortest_path = 63
+    shortest_path = 7
     current_node = nil
     # Until our iterator reaches the final node...
     until current_node == final
@@ -47,24 +47,22 @@
           current_node = new_node
         end
       end
-    solution << current_node
-    shortest_seeker = Knight.new(current_node)
-      
+      solution << current_node
+      shortest_seeker = Knight.new(current_node)
     end
     print_travails(solution, start, final)
   end
 
   def print_travails(solution, start, final)
     puts "The shortest path from #{start} to #{final} is #{solution.inspect}."
-	print "\nThe Knight starts at #{start}.\n\n"
+    print "\nThe Knight starts at #{start}.\n\n"
     knight_travails = Gameboard.new
-	knight_travails.add_knight(solution.shift)
-	knight_travails.display_board
-	solution.each_with_index do |new_node, index| 
-		knight_travails.move_knight(new_node)
-		print "\nThen it moves to #{solution[index]}.\n\n"
-		knight_travails.display_board
+    knight_travails.add_knight(solution.shift)
+    knight_travails.display_board
+    solution.each_with_index do |new_node, index| 
+      knight_travails.move_knight(new_node)
+      print "\nThen it moves to #{solution[index]}.\n\n"
+      knight_travails.display_board
     end
   end
-#end
-
+end
