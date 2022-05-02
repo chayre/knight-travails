@@ -8,6 +8,8 @@ A Knight class defines our piece; knights are constrained such that they can onl
 The gameboard initializes the knight object, displays it for the user, and iniitializes itself as an 8 by 8 board, 0-indexed; 0 to 7 by 0 to 7.
 
 ## Dijkstra's Algorithm
+The algorithm for finding the shortest path works as the Wikipedia article describes it below. Assign a value of nil to each position on the board. Go through each feasible path and assign a number to each position on the board based on when you've visited it (1 is first visited, 2 if second visited) and it is lower than the current number assigned to it. Finally, iterate through the board to find the positions with the smallest numbers (smallest distances) and add their positions to the solutions array.
+
 From Wikipedia:
 > Suppose you would like to find the shortest path between two intersections on a city map: a starting point and a destination. Dijkstra's algorithm initially marks the distance (from the starting point) to every other intersection on the map with infinity. This is done not to imply that there is an infinite distance, but to note that those intersections have not been visited yet. Some variants of this method leave the intersections' distances unlabeled. Now select the current intersection at each iteration. For the first iteration, the current intersection will be the starting point, and the distance to it (the intersection's label) will be zero. For subsequent iterations (after the first), the current intersection will be a closest unvisited intersection to the starting point (this will be easy to find).
 
